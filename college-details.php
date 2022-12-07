@@ -16,9 +16,11 @@
   </thead>
   
   <?php
-
-    
-      
+  $servername = "localhost";
+$username = "russtayl_user";
+$password = "RussTaylor2000";
+$dbname = "russtayl_sample";
+     
   $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
@@ -31,9 +33,9 @@ if ($conn->connect_error) {
         
   switch ($_POST['saveType']) {
  case 'Add':
-      $sqlAdd = "insert into Ticket (movieID, memberID, foodID, seat, showtime) value (?, ?, ?, ?, ?)";
+      $sqlAdd = "insert into college (CollegeID, Logo, CollegeName, CollegeLocation, Conference, CollegeDesc) value (?, ?, ?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-    $stmtAdd->bind_param("iiiss", $_POST['mid'], $_POST['meid'], $_POST['fid'], $_POST['Tseat'], $_POST['Tshowtime']);
+    $stmtAdd->bind_param("iiiss", $_POST['mid'], $_POST['meid'], $_POST['fid'], $_POST['Tseat'], $_POST['Tshowtime'], $_POST['Tdesc']);
     $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">Ticket Purchased!</div>';
       break;
@@ -44,7 +46,7 @@ if ($conn->connect_error) {
     
    $mid = $_GET['id'];
   
-$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary from Movie where movieID=" . $mid;
+$sql = "Select CollegeID, Logo, CollegeName, CollegeLocation, Conference, CollegeDesc from college where CollegeID=" . $mid;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
