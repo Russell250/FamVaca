@@ -18,13 +18,13 @@
           <a class="nav-link active" aria-current="page" href="index.php">Family Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tayFam.php">Taylor Family</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="brookFam.php">Brooks Family</a>
+          <a class="nav-link" href="tayFam.php">The Family</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="college.php">Fam Colleges</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="groList.php">Grocies</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="act.php">Jacksonville and Activities</a>
