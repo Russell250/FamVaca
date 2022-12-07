@@ -1,7 +1,4 @@
 <?php require_once("header.php"); ?>
-
-
-  <body>
       
 <table class="table table-striped">
   <thead>
