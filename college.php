@@ -16,7 +16,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "Select CollegeID, CollegeName, Logo from college";
+$sql = "Select CollegeID, CollegeName, Logo from colleges";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
