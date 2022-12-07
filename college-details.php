@@ -27,21 +27,6 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-  
-  
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-  switch ($_POST['saveType']) {
- case 'Add':
-      $sqlAdd = "insert into college (CollegeID, Logo, CollegeName, CollegeLocation, Conference, CollegeDesc) value (?, ?, ?, ?, ?)";
-      $stmtAdd = $conn->prepare($sqlAdd);
-    $stmtAdd->bind_param("iiiss", $_POST['mid'], $_POST['meid'], $_POST['fid'], $_POST['Tseat'], $_POST['Tshowtime'], $_POST['Tdesc']);
-    $stmtAdd->execute();
-      echo '<div class="alert alert-success" role="alert">Ticket Purchased!</div>';
-      break;
- 
-  }
-}
     
     
    $mid = $_GET['id'];
