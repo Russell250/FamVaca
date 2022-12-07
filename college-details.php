@@ -31,7 +31,7 @@ if ($conn->connect_error) {
     
    $mid = $_GET['id'];
   
-$sql = "Select CollegeID, Logo, CollegeName, CollegeLocation, Conference, CollegeDesc from college where CollegeID=" . $mid;
+$sql = "Select CollegeID, Logo, CollegeName, CollegeLocation, Conference, CollegeDesc from colleges where CollegeID=" . $mid;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
