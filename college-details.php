@@ -32,6 +32,7 @@ if ($conn->connect_error) {
    $mid = $_GET['id'];
   
 $sql = "Select CollegeID, Logo, CollegeName, CollegeLocation, Conference, CollegeDesc from colleges where CollegeID=" . $mid;
+  echo $sql;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
