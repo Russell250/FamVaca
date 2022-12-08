@@ -6,7 +6,7 @@
     <tr>
       <th>Grocery ID</th>
       <th>Item Name</th>
-      <th></th>
+      <th>Item Store</th>
     </tr>
   </thead>
   <tbody>
@@ -58,6 +58,8 @@ if ($result->num_rows > 0) {
 ?>
   <tr>
     <td><?=$row["growID"]?></td>
+    <td><?=$row["ItemName"]?></td>
+    <td><?=$row["ItemStore"]?></td>
     <td>
          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editActors<?=$row["growID"]?>">
                 Edit
