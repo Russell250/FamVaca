@@ -32,24 +32,24 @@ if ($conn->connect_error) {
       echo '<div class="alert alert-success" role="alert">New Item added.</div>';
       break;
     case 'Edit':
-      $sqlEdit = "update Actors set ActorName=? where ActorID=?";
+      $sqlEdit = "update grow set ItemName=? where growID=?";
       $stmtEdit = $conn->prepare($sqlEdit);
       $stmtEdit->bind_param("si", $_POST['iName'], $_POST['iid']);
       $stmtEdit->execute();
-      echo '<div class="alert alert-success" role="alert">Actor edited.</div>';
+      echo '<div class="alert alert-success" role="alert">Item edited.</div>';
       break;
     case 'Delete':
-      $sqlDelete = "delete from Actors where ActorID=?";
+      $sqlDelete = "delete from grow where growID=?";
       $stmtDelete = $conn->prepare($sqlDelete);
       $stmtDelete->bind_param("i", $_POST['iid']);
       $stmtDelete->execute();
-      echo '<div class="alert alert-success" role="alert">Actor deleted.</div>';
+      echo '<div class="alert alert-success" role="alert">Item deleted.</div>';
       break;
   }
 }
 
 
-$sql = "SELECT * from Actors";
+$sql = "SELECT * from grow";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -57,27 +57,26 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
   <tr>
-    <td><?=$row["ActorID"]?></td>
-    <td><a href="actorfile.php?id=<?=$row["ActorID"]?>"><?=$row["ActorName"]?></a></td>
+    <td><?=$row["growID"]?></td>
     <td>
-         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editActors<?=$row["ActorID"]?>">
+         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editActors<?=$row["growID"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editActors<?=$row["ActorID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editActors<?=$row["ActorID"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editActors<?=$row["growID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editActors<?=$row["growID"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editActors<?=$row["ActorName"]?>Label">Edit Actor</h1>
+                      <h1 class="modal-title fs-5" id="editActors<?=$row["ItemName"]?>Label">Edit Item</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editActors<?=$row["ActorID"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editActors<?=$row["ActorID"]?>Name" aria-describedby="editActors<?=$row["ActorID"]?>Help" name="iName" value="<?=$row['ActorName']?>">
-                          <div id="editActors<?=$row["ActorID"]?>Help" class="form-text">Enter the Actors name.</div>
+                          <label for="editActors<?=$row["growID"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editActors<?=$row["growID"]?>Name" aria-describedby="editActors<?=$row["growID"]?>Help" name="iName" value="<?=$row['ItemName']?>">
+                          <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Items name.</div>
                         </div>
-                        <input type="hidden" name="iid" value="<?=$row['ActorID']?>">
+                        <input type="hidden" name="iid" value="<?=$row['growID']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                       </form>
@@ -88,14 +87,10 @@ if ($result->num_rows > 0) {
             </td>
             <td>
                 <form method="post" action="">
-                <input type="hidden" name="iid" value="<?=$row["ActorID"]?>" />
+                <input type="hidden" name="iid" value="<?=$row["growID"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
-      <form method="post" action="movie-actor.php">
-        <input type="hidden" name="id" value="<?=$row["ActorID"]?>" />
-        <input type="submit" value="Movies"/>
-      </form>
     </td>
   </tr>
 <?php
