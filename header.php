@@ -24,7 +24,7 @@
           <a class="nav-link" href="college.php">Fam Colleges</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="groList.php">Grocies</a>
+          <a class="nav-link" href="groList.php">Groceries</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="act.php">Jacksonville and Activities</a>
