@@ -77,6 +77,8 @@ if ($result->num_rows > 0) {
                           <label for="editActors<?=$row["growID"]?>Name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="editActors<?=$row["growID"]?>Name" aria-describedby="editActors<?=$row["growID"]?>Help" name="iName" value="<?=$row['ItemName']?>">
                           <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Items name.</div>
+                          <input type="text" class="form-control" id="editActors<?=$row["growID"]?>Name" aria-describedby="editActors<?=$row["growID"]?>Help" name="iName" value="<?=$row['ItemStore']?>">
+                          <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Items Store.</div>
                         </div>
                         <input type="hidden" name="iid" value="<?=$row['growID']?>">
                         <input type="hidden" name="saveType" value="Edit">
