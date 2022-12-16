@@ -77,9 +77,9 @@ if ($result->num_rows > 0) {
                           <label for="editActors<?=$row["growID"]?>Name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="editActors<?=$row["growID"]?>Name" aria-describedby="editActors<?=$row["growID"]?>Help" name="iName" value="<?=$row['ItemName']?>">
                           <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Items name.</div>
-                          <label for="TheaterLocation" class="form-label">Theater Location</label>
+                          <label for="TheaterLocation" class="form-label">Item Store</label>
                           <input type="text" class="form-control" id="sName" aria-describedby="nameHelp" name="sName">
-                          <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Item's location.</div>
+                          <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Item's Store.</div>
                         </div>
                         <input type="hidden" name="iid" value="<?=$row['growID']?>">
                         <input type="hidden" name="saveType" value="Edit">
@@ -126,6 +126,9 @@ if ($result->num_rows > 0) {
                   <label for="ActorName" class="form-label">Name</label>
                   <input type="text" class="form-control" id="ActorName" aria-describedby="nameHelp" name="iName">
                   <div id="nameHelp" class="form-text">Enter the Item's name.</div>
+                  <label for="TheaterLocation" class="form-label">Item Store</label>
+                  <input type="text" class="form-control" id="sName" aria-describedby="nameHelp" name="sName">
+                  <div id="editActors<?=$row["growID"]?>Help" class="form-text">Enter the Item's Store.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
